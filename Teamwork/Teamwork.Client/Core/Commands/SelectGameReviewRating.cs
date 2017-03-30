@@ -25,7 +25,9 @@
             foreach (var item in result)
             {
                 sb.AppendFormat("Game name: {0,-35}\n", item.GameName);
-                sb.AppendFormat("Title: {0,-30} | Contnet: {1,-30} | Rating: {2,-5}\n\n", item.ReviewTitle, item.ReviewContnet, item.Rating);
+                sb.AppendFormat("Title: {0,-30}\n", item.ReviewTitle);
+                sb.AppendFormat("Contnet: {0,-30}\n", item.ReviewContnet);
+                sb.AppendFormat("Rating: {0,-5}\n\n", item.Rating);
             }
 
             return sb.ToString();

@@ -4,7 +4,7 @@
     using System.Linq;
     using Data;
     using Models;
-    using Models.Anonymous;
+    using Models.Dtos;
 
     public class ReviewService
     {
@@ -54,12 +54,29 @@
                         GameName = g.Game.Name,
                         ReviewTitle = g.Name,
                         ReviewContnet = g.Content,
-                        Rating = g.Rating,
-                        
+                        Rating = g.Rating                        
                     })
                     .Where(g => g.Rating >= rating)
                     .OrderBy(r => r.Rating)
                     .ThenBy(r => r.GameName);
+
+                return result.ToList();
+            }
+        }
+
+        public List<GetCommentsAndReviewsDto> ListReviewsAndComments(string gameName)
+        {
+            using (TeamworkContext context = new TeamworkContext())
+            {
+                var result = context.Reviews
+                    .Select(c => new GetCommentsAndReviewsDto()
+                    {
+                        GameName = c.Game.Name,
+                        ReviewTitle = c.Name,
+                        ReviewContent = c.Content,
+                        Comments = c.Comments.Select(g => g.Content).ToList()
+                    })
+                    .Where(g => g.GameName == gameName);
 
                 return result.ToList();
             }

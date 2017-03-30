@@ -1,4 +1,4 @@
-﻿namespace Teamwork.Models.Anonymous
+﻿namespace Teamwork.Models.Dtos
 {
     public class GetGamesByRatingAnonymous
     {

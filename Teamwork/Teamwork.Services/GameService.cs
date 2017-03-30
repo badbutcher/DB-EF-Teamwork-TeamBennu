@@ -6,11 +6,11 @@
     using Data;
     using Models;
     using Models.Enums;
-    using Models.Anonymous;
+    using Models.Dtos;
 
     public class GameService
     {
-        public void GreateGame(string name, bool isSingleplayer, bool isMultiplayer, DateTime relaseDate, GameGenre gameGender)
+        public void GreateGame(string name, bool isSingleplayer, bool isMultiplayer, DateTime? relaseDate, GameGenre gameGender)
         {
             Game game = new Game
             {
@@ -102,14 +102,14 @@
             }
         }
 
-        public List<GetGamesByGenreAnonymous> GetGamesByGenre(string genreName)
+        public List<GetGamesByGenreDto> GetGamesByGenre(string genreName)
         {
             using (TeamworkContext context = new TeamworkContext())
             {
                 GameGenre genre = (GameGenre)Enum.Parse(typeof(GameGenre), genreName);
 
                 var query = context.Games
-                            .Select(g => new GetGamesByGenreAnonymous()
+                            .Select(g => new GetGamesByGenreDto()
                             {
                                 Name = g.Name,
                                 SP = g.IsSingleplayer,
@@ -118,6 +118,15 @@
                             })
                             .Where(g => g.Genre == genre);
 
+                return query.ToList();
+            }
+        }
+
+        public List<Game> ListAllGames()
+        {
+            using (TeamworkContext context = new TeamworkContext())
+            {
+                var query = context.Games;
                 return query.ToList();
             }
         }

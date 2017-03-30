@@ -41,8 +41,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Anonymous\GetGamesByGenreAnonymous.cs" />
-    <Compile Include="Anonymous\GetGamesByRatingAnonymous.cs" />
+    <Compile Include="Dtos\GetCommentsAndReviewsDto.cs" />
+    <Compile Include="Dtos\GetGamesByGenreDto.cs" />
+    <Compile Include="Dtos\GetGamesByRatingDto.cs" />
     <Compile Include="Comment.cs" />
     <Compile Include="Developer.cs" />
     <Compile Include="Enums\GameGenre.cs" />

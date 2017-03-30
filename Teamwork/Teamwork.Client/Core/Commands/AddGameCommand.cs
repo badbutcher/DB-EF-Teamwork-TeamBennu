@@ -26,7 +26,7 @@
             string isMultiplayer = Console.ReadLine();
 
             Console.Write("When was the game released: ");
-            DateTime releaseDate = DateTime.Parse(Console.ReadLine());
+            DateTime? releaseDate = DateTime.Parse(Console.ReadLine());
 
             Console.Write("What is the game genre: ");
             string gameGenre = Console.ReadLine();

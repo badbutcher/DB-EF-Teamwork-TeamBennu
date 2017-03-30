@@ -53,6 +53,14 @@
                     SelectGameReviewRating selectGameByRating = new SelectGameReviewRating(reviewService);
                     result = selectGameByRating.Execute(commandParameters);
                     break;
+                case "ListAll":
+                    SelectAllGamesCommand selectAllGamesCommand = new SelectAllGamesCommand(gameService);
+                    result = selectAllGamesCommand.Execute(commandParameters);
+                    break;
+                case "Com":
+                    SelectCommentsForReviewsCommand selectCommentsForReviewsCommand = new SelectCommentsForReviewsCommand(reviewService);
+                    result = selectCommentsForReviewsCommand.Execute(commandParameters);
+                    break;
                 case "Exit":
                     ExitCommand exit = new ExitCommand();
                     exit.Execute();
