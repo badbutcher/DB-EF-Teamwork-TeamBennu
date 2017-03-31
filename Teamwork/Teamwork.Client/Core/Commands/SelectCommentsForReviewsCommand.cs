@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Teamwork.Services;
-
-namespace Teamwork.Client.Core.Commands
+﻿namespace Teamwork.Client.Core.Commands
 {
+    using System;
+    using System.Text;
+    using Services;
+
     public class SelectCommentsForReviewsCommand
     {
         private ReviewService reviewService;

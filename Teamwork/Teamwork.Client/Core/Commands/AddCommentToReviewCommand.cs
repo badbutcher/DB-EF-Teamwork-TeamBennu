@@ -31,7 +31,7 @@
 
             this.commentService.AddCommentToReview(commentContent, reviewTitle);
 
-            return "asd";
+            return $"Comment added to {reviewTitle}";
         }
     }
 }

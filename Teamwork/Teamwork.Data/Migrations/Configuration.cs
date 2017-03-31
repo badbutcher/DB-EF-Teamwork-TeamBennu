@@ -35,7 +35,7 @@ namespace Teamwork.Data.Migrations
                 Name = "Valve",
                 FoundedInCountryName = "United States",
                 FoundedIn = DateTime.Parse("24.08.1996")
-            };
+            };   
 
             context.Developers.AddOrUpdate(d => d.Name, dev1, dev2);
             context.Publishers.AddOrUpdate(p => p.Name, pub1);
@@ -92,10 +92,6 @@ namespace Teamwork.Data.Migrations
                 Developers = new List<Developer>()
                 {
                     ValveDev
-                },
-                Reviews = new List<Review>()
-                {
-
                 }
             },
             new Game()
@@ -109,7 +105,7 @@ namespace Teamwork.Data.Migrations
                 {
                     ValvePub
                 },
-                  Developers = new List<Developer>()
+                Developers = new List<Developer>()
                 {
                     ValveDev
                 }

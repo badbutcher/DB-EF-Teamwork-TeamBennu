@@ -37,7 +37,7 @@
 
             this.reviewService.AddReviewToGame(gameName, title);
 
-            return "asd";
+            return $"Review {title} was added to the game {gameName}";
         }
     }
 }
