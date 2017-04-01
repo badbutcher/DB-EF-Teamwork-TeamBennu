@@ -12,16 +12,24 @@
             this.publisherService = publisherService;
         }
 
-        public string Execute(string data)
+        public string Execute(int data)
         {
             Console.Write("Enter publisher name: ");
             string name = Console.ReadLine();
 
             Console.Write("Enter publisher founded location: ");
             string countryName = Console.ReadLine();
+            if (countryName == string.Empty)
+            {
+                countryName = "Unknown";
+            }
 
             Console.Write("Enter city founded location: ");
             string cityName = Console.ReadLine();
+            if (cityName == string.Empty)
+            {
+                cityName = "Unknown";
+            }
 
             Console.Write("Enter founded date: ");
             DateTime founded = DateTime.Parse(Console.ReadLine());

@@ -27,6 +27,7 @@ namespace Teamwork.Data.Migrations
             {
                 Name = "Turtle Rock Studios",
                 FoundedInCountryName = "United States",
+                FoundedInCityName = "NY",
                 DateFounded = DateTime.Parse("01.03.2002")
             };
 
@@ -34,8 +35,9 @@ namespace Teamwork.Data.Migrations
             {
                 Name = "Valve",
                 FoundedInCountryName = "United States",
+                FoundedInCityName = "NY",
                 FoundedIn = DateTime.Parse("24.08.1996")
-            };   
+            };
 
             context.Developers.AddOrUpdate(d => d.Name, dev1, dev2);
             context.Publishers.AddOrUpdate(p => p.Name, pub1);

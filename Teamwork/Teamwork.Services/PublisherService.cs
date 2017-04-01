@@ -4,6 +4,8 @@
     using System.Linq;
     using Data;
     using Models;
+    using System.Collections.Generic;
+    using Models.Dtos;
 
     public class PublisherService
     {
@@ -30,6 +32,24 @@
             {
                 var check = context.Publishers.Any(g => g.Name == name);
                 return check;
+            }
+        }
+
+        public List<GetPublishersAndGamesDto> GetPublishersAndGames()
+        {
+            using (TeamworkContext context = new TeamworkContext())
+            {
+                var query = context.Publishers
+                            .Select(d => new GetPublishersAndGamesDto()
+                            {
+                                PublisherName = d.Name,
+                                FoundedInCityName = d.FoundedInCityName,
+                                FoundedInCountryName = d.FoundedInCountryName,
+                                DateFounded = d.FoundedIn,
+                                GamesMade = d.Games.Select(g => g.Name).ToList()
+                            });
+
+                return query.ToList();
             }
         }
     }

@@ -7,11 +7,11 @@ namespace Teamwork.Data.Migrations
     {
         public override void Up()
         {
-            AddColumn("dbo.Developers", "FoundedInCountryName", c => c.String());
-            AddColumn("dbo.Developers", "FoundedInCityName", c => c.String());
+            AddColumn("dbo.Developers", "FoundedInCountryName", c => c.String(defaultValue: "Unknown"));
+            AddColumn("dbo.Developers", "FoundedInCityName", c => c.String(defaultValue: "Unknown"));
             AddColumn("dbo.Developers", "DateFounded", c => c.DateTime());
-            AddColumn("dbo.Publishers", "FoundedInCountryName", c => c.String());
-            AddColumn("dbo.Publishers", "FoundedInCityName", c => c.String());
+            AddColumn("dbo.Publishers", "FoundedInCountryName", c => c.String(defaultValue: "Unknown"));
+            AddColumn("dbo.Publishers", "FoundedInCityName", c => c.String(defaultValue: "Unknown"));
             AddColumn("dbo.Publishers", "FoundedIn", c => c.DateTime());
             DropColumn("dbo.Developers", "Location");
             DropColumn("dbo.Developers", "Founded");

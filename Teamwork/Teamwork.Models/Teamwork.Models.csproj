@@ -42,10 +42,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Dtos\GetCommentsAndReviewsDto.cs" />
+    <Compile Include="Dtos\GetDevelopersAndGamesDto.cs" />
     <Compile Include="Dtos\GetGamesByGenreDto.cs" />
     <Compile Include="Dtos\GetGamesByRatingDto.cs" />
     <Compile Include="Comment.cs" />
     <Compile Include="Developer.cs" />
+    <Compile Include="Dtos\GetPublishersAndGamesDto.cs" />
     <Compile Include="Enums\GameGenre.cs" />
     <Compile Include="Game.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

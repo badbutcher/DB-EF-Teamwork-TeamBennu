@@ -14,7 +14,7 @@
             this.developerService = developerService;
         }
 
-        public string Execute(string data)
+        public string Execute(int data)
         {
             Console.Write("Enter game name : ");
             string gameName = Console.ReadLine();

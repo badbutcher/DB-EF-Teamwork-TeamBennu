@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Teamwork.Services;
-
-namespace Teamwork.Client.Core.Commands
+﻿namespace Teamwork.Client.Core.Commands
 {
+    using System.Text;
+    using Services;
+
     public class SelectAllGamesCommand
     {
         private GameService gameService;
@@ -16,7 +12,7 @@ namespace Teamwork.Client.Core.Commands
             this.gameService = gameService;
         }
 
-        public string Execute(string data)
+        public string Execute(int data)
         {
             var result = this.gameService.ListAllGames();
 

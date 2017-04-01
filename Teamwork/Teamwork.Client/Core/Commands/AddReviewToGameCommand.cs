@@ -14,7 +14,7 @@
             this.gameService = gameService;
         }
 
-        public string Execute(string data)
+        public string Execute(int data)
         {
             Console.Write("Enter review title : ");
             string title = Console.ReadLine();

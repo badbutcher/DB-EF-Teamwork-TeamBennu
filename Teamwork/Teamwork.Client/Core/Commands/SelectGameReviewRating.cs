@@ -13,7 +13,7 @@
             this.reviewService = reviewService;
         }
 
-        public string Execute(string data)
+        public string Execute(int data)
         {
             Console.Write("Enter minimum game rating: ");
             float gameRating = float.Parse(Console.ReadLine());

@@ -49,12 +49,12 @@
             using (TeamworkContext context = new TeamworkContext())
             {
                 var result = context.Reviews
-                    .Select(g=> new GetGamesByRatingAnonymous()
+                    .Select(g => new GetGamesByRatingAnonymous()
                     {
                         GameName = g.Game.Name,
                         ReviewTitle = g.Name,
                         ReviewContnet = g.Content,
-                        Rating = g.Rating                        
+                        Rating = g.Rating
                     })
                     .Where(g => g.Rating >= rating)
                     .OrderBy(r => r.Rating)

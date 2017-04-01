@@ -92,8 +92,7 @@ namespace Teamwork.Data.Migrations
                 .ForeignKey("dbo.Publishers", t => t.Publisher_Id, cascadeDelete: true)
                 .ForeignKey("dbo.Games", t => t.Game_Id, cascadeDelete: true)
                 .Index(t => t.Publisher_Id)
-                .Index(t => t.Game_Id);
-            
+                .Index(t => t.Game_Id);            
         }
         
         public override void Down()

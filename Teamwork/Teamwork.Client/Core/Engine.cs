@@ -18,13 +18,14 @@
                 try
                 {
                     this.PrintOptions();
-                    string input = Console.ReadLine().Trim();
-                    string data = input;
+                    int input = int.Parse(Console.ReadLine());
+                    int data = input;
                     string result = this.commandDispatcher.DispatchCommand(data);
                     Console.WriteLine(result);
                 }
                 catch (Exception e)
                 {
+                    Console.Clear();
                     Console.WriteLine(e.Message);
                 }
             }
@@ -43,7 +44,9 @@
             Console.WriteLine("9 - View games by a given minimum rating.");
             Console.WriteLine("10 - List all games.");
             Console.WriteLine("11 - View reviews and comments for a given game.");
-            Console.WriteLine("12 - Exit");
+            Console.WriteLine("12 - View developers and there games.");
+            Console.WriteLine("13 - View publishers and there games.");
+            Console.WriteLine("99 - Exit");
         }
     }
 }

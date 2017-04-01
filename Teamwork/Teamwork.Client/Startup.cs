@@ -5,10 +5,10 @@
 
     class Startup
     {
-        static void Main(string[] args)
+        static void Main()
         {
             TeamworkContext context = new TeamworkContext();
-            //context.Database.Initialize(true);
+            ////context.Database.Initialize(true);
 
             CommandDispatcher commandDispatcher = new CommandDispatcher();
             Engine engine = new Engine(commandDispatcher);

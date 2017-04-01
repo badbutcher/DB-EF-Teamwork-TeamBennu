@@ -14,7 +14,7 @@
             this.reviewService = reviewService;
         }
 
-        public string Execute(string data)
+        public string Execute(int data)
         {
             Console.Write("Enter review title to comment : ");
             string reviewTitle = Console.ReadLine();

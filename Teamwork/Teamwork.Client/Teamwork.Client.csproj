@@ -63,8 +63,10 @@
     <Compile Include="Core\Commands\ExitCommand.cs" />
     <Compile Include="Core\Commands\SelectAllGamesCommand.cs" />
     <Compile Include="Core\Commands\SelectCommentsForReviewsCommand.cs" />
+    <Compile Include="Core\Commands\SelectDevelopersAndThereGamesCommand.cs" />
     <Compile Include="Core\Commands\SelectGameByGenre.cs" />
     <Compile Include="Core\Commands\SelectGameReviewRating.cs" />
+    <Compile Include="Core\Commands\SelectPublishersAndThereGames.cs" />
     <Compile Include="Core\Engine.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

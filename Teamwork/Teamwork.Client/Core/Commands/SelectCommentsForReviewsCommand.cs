@@ -13,7 +13,7 @@
             this.reviewService = reviewService;
         }
 
-        public string Execute(string data)
+        public string Execute(int data)
         {
             Console.Write("Enter game name to checks its reviews and comments: ");
             string gameName = Console.ReadLine();
