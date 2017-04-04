@@ -75,8 +75,7 @@
                     exit.Execute();
                     break;
                 default:
-                    Console.WriteLine("Unknow command");
-                    break;
+                    throw new FormatException("Unknow command. Try commands from 1 to 13 or 99 to exit.");
             }
 
             return result;

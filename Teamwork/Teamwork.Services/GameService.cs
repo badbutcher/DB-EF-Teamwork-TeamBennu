@@ -62,21 +62,6 @@
             }
         }
 
-        ////public void AddGameToDeveloper(string[] gameName, string developerName)
-        ////{
-        ////    using (TeamworkContext context = new TeamworkContext())
-        ////    {
-        ////        foreach (var item in gameName)
-        ////        {
-        ////            Game game = context.Games.SingleOrDefault(g => g.Name == item);
-        ////            Developer developer = context.Developers.SingleOrDefault(d => d.Name == developerName);
-        ////            developer.Games.Add(game);
-        ////            game.Developers.Add(developer);
-        ////        }
-        ////        context.SaveChanges();
-        ////    }
-        ////}
-
         public bool DoesTheGameHaveAnPublisher(string gameName, string publisherName)
         {
             using (TeamworkContext context = new TeamworkContext())
@@ -129,6 +114,16 @@
                 var query = context.Games;
                 return query.ToList();
             }
+        }
+
+        public List<string> GetAllGenres()
+        {
+            var result = Enum.GetValues(typeof(GameGenre))
+                .Cast<GameGenre>()
+                .Select(v => v.ToString())
+                .ToList();
+
+            return result;
         }
     }
 }

@@ -44,6 +44,18 @@
             }
         }
 
+        public bool IsRatingValid(float rating)
+        {
+            if (rating <= 10 && rating >= 1)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
         public List<GetGamesByRatingAnonymous> GetGamesByRating(float rating)
         {
             using (TeamworkContext context = new TeamworkContext())

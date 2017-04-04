@@ -25,19 +25,24 @@
             Console.Write("Enter rating (1-10) : ");
             float rating = float.Parse(Console.ReadLine());
 
+            if (!reviewService.IsRatingValid(rating))
+            {
+                throw new ArgumentException("Rating must be in range 1-10.");
+            }
+
             Console.Write("Enter game name for the review : ");
             string gameName = Console.ReadLine();
 
             if (!this.gameService.DoesGameExist(gameName))
             {
-                throw new ArgumentException($"The game {gameName} does not exist");
+                throw new ArgumentException($"The game {gameName} does not exist.");
             }
 
             this.reviewService.GreateReview(title, content, rating, gameName);
 
             this.reviewService.AddReviewToGame(gameName, title);
 
-            return $"Review {title} was added to the game {gameName}";
+            return $"Review {title} was added to the game {gameName}.";
         }
     }
 }

@@ -4,6 +4,7 @@
     using System.Linq;
     using Models.Enums;
     using Services;
+    using System.Collections.Generic;
 
     public class AddGameCommand
     {
@@ -28,19 +29,19 @@
             Console.Write("When was the game released: ");
             DateTime? releaseDate = DateTime.Parse(Console.ReadLine());
 
-            Console.Write("What is the game genre: ");
+            Console.Write("What is the game genre ({0}): ", string.Join(", ", gameService.GetAllGenres()));
             string gameGenre = Console.ReadLine();
 
             if (this.gameService.DoesGameExist(name))
             {
-                throw new ArgumentException("Game already exist");
+                throw new ArgumentException("Game already exist.");
             }
 
             GameGenre genre = (GameGenre)Enum.Parse(typeof(GameGenre), gameGenre);
 
             this.gameService.GreateGame(name, ToBoolean(isSingleplayer), ToBoolean(isMultiplayer), releaseDate, genre);
 
-            return $"Game {name} was added";
+            return $"Game {name} was added.";
         }
 
         private static bool ToBoolean(string s)

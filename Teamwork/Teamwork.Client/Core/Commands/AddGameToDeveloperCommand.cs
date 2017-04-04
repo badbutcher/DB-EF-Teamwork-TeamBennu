@@ -24,22 +24,22 @@
 
             if (!this.gameService.DoesGameExist(gameName))
             {
-                throw new ArgumentException("Game does not exist");
+                throw new ArgumentException("Game does not exist.");
             }
 
             if (!this.developerService.DoesDeveloperExist(developerName))
             {
-                throw new ArgumentException("Developer does not exist");
+                throw new ArgumentException("Developer does not exist.");
             }
 
             if (this.gameService.DoesTheGameHaveAnDeveloper(gameName, developerName))
             {
-                throw new ArgumentException($"{gameName} is already made by {developerName}");
+                throw new ArgumentException($"{gameName} is already made by {developerName}.");
             }
 
             this.gameService.AddGameToDeveloper(gameName, developerName);
 
-            return $"{developerName} has made the game {gameName}";
+            return $"{developerName} has made the game {gameName}.";
         }
     }
 }

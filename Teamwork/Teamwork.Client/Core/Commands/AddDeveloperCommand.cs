@@ -36,12 +36,12 @@
 
             if (this.developerService.DoesDeveloperExist(name))
             {
-                throw new ArgumentException("Developer already exist");
+                throw new ArgumentException("Developer already exist.");
             }
 
             this.developerService.GreateDeveloper(name, countryName, cityName, founded);
 
-            return $"Developer {name} was added";
+            return $"Developer {name} was added.";
         }
     }
 }

@@ -24,11 +24,17 @@
                 sb.AppendFormat("Country: {0,-20} | City: {1,-20}\n", item.FoundedInCountryName, item.FoundedInCityName);
                 sb.AppendFormat("Founded in: {0,-35}\n", item.DateFounded);
                 sb.Append("Games made:\n");
-                foreach (var game in item.GamesMade)
+                if (item.GamesMade.Count == 0)
                 {
-                    sb.AppendFormat("-- {0}\n", game);
+                    sb.Append("-- None\n");
                 }
-
+                else
+                {
+                    foreach (var game in item.GamesMade)
+                    {
+                        sb.AppendFormat("-- {0}\n", game);
+                    }
+                }
                 sb.Append("\n");
             }
 

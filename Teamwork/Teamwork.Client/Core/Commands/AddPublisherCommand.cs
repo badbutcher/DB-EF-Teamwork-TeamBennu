@@ -36,12 +36,12 @@
 
             if (this.publisherService.DoesPublisherExist(name))
             {
-                throw new ArgumentException("Publisher already exist");
+                throw new ArgumentException("Publisher already exist.");
             }
 
             this.publisherService.GreatePublisher(name, countryName, cityName, founded);
 
-            return $"Publisher {name} was added";
+            return $"Publisher {name} was added.";
         }
     }
 }

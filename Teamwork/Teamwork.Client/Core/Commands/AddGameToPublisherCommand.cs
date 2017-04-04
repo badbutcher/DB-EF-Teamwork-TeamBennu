@@ -24,22 +24,22 @@
 
             if (!this.gameService.DoesGameExist(gameName))
             {
-                throw new ArgumentException("Game does not exist");
+                throw new ArgumentException("Game does not exist.");
             }
 
             if (!this.publisherService.DoesPublisherExist(publisherName))
             {
-                throw new ArgumentException("Developer does not exist");
+                throw new ArgumentException("Developer does not exist.");
             }
 
             if (this.gameService.DoesTheGameHaveAnPublisher(gameName, publisherName))
             {
-                throw new ArgumentException($"{gameName} is already made by {publisherName}");
+                throw new ArgumentException($"{gameName} is already made by {publisherName}.");
             }
 
             this.gameService.AddGameToPublisher(gameName, publisherName);
 
-            return $"{publisherName} now publishes the game {gameName}";
+            return $"{publisherName} now publishes the game {gameName}.";
         }
     }
 }

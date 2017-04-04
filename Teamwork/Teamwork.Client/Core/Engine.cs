@@ -20,13 +20,12 @@
                     this.PrintOptions();
                     int input = int.Parse(Console.ReadLine());
                     int data = input;
-                    string result = this.commandDispatcher.DispatchCommand(data);
-                    Console.WriteLine(result);
+                    string result = this.commandDispatcher.DispatchCommand(data); 
+                    Success(result);
                 }
                 catch (Exception e)
                 {
-                    Console.Clear();
-                    Console.WriteLine(e.Message);
+                    Error(e);
                 }
             }
         }
@@ -47,6 +46,28 @@
             Console.WriteLine("12 - View developers and there games.");
             Console.WriteLine("13 - View publishers and there games.");
             Console.WriteLine("99 - Exit");
+        }
+
+        private void Error(Exception e)
+        {
+            Console.Clear();
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine(e.Message);
+            Console.ResetColor();
+            Console.Beep(500, 600);
+            Console.Beep(300, 800);
+        }
+
+        private void Success(string result)
+        {
+            Console.Clear();
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine(result);
+            Console.ResetColor();
+            Console.Beep(300, 100);
+            Console.Beep(400, 100);
+            Console.Beep(500, 100);
+            Console.Beep(600, 100);
         }
     }
 }

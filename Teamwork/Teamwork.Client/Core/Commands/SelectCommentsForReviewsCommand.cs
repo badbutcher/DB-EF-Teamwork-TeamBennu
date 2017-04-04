@@ -26,7 +26,7 @@
             {
                 sb.AppendFormat("Review title: {0,-35}\n", item.ReviewTitle);
                 sb.AppendFormat("->Review content: {0,-35}\n", item.ReviewContent);
-                sb.Append("Comments: \n");
+                sb.Append("-->Comments: \n");
                 if (item.Comments.Count == 0)
                 {
                     sb.Append("No comments");

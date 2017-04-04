@@ -18,10 +18,18 @@
             Console.Write("Enter minimum game rating: ");
             float gameRating = float.Parse(Console.ReadLine());
 
+            if (!reviewService.IsRatingValid(gameRating))
+            {
+                throw new ArgumentException("Rating must be in range 1-10.");
+            }
+
             var result = this.reviewService.GetGamesByRating(gameRating);
 
             StringBuilder sb = new StringBuilder();
-
+            if (result.Count == 0)
+            {
+                sb.Append("No games with such rating");
+            }
             foreach (var item in result)
             {
                 sb.AppendFormat("Game name: {0,-35}\n", item.GameName);

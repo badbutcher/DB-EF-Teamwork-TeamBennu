@@ -24,14 +24,14 @@
 
             if (!this.reviewService.DoesReviewExist(reviewTitle))
             {
-                throw new ArgumentException($"{reviewTitle} does not exist");
+                throw new ArgumentException($"{reviewTitle} does not exist.");
             }
 
             this.commentService.AddComment(commentContent);
 
             this.commentService.AddCommentToReview(commentContent, reviewTitle);
 
-            return $"Comment added to {reviewTitle}";
+            return $"Comment added to {reviewTitle}.";
         }
     }
 }
