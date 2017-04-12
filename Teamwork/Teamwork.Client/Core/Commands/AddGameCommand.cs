@@ -34,7 +34,7 @@
 
             if (this.gameService.DoesGameExist(name))
             {
-                throw new ArgumentException("Game already exist.");
+                throw new ArgumentException(string.Format(ErrorMessages.GameExists,name));
             }
 
             GameGenre genre = (GameGenre)Enum.Parse(typeof(GameGenre), gameGenre);

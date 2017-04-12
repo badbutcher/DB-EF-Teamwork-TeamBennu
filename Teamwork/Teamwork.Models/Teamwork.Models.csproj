@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="Dtos\GetCommentsAndReviewsDto.cs" />
     <Compile Include="Dtos\GetDevelopersAndGamesDto.cs" />
+    <Compile Include="Dtos\GetGameByAverageRatingDto.cs" />
     <Compile Include="Dtos\GetGamesByGenreDto.cs" />
     <Compile Include="Dtos\GetGamesByRatingDto.cs" />
     <Compile Include="Comment.cs" />

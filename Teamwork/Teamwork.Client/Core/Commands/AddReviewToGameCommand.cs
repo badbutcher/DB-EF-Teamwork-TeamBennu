@@ -19,6 +19,11 @@
             Console.Write("Enter review title : ");
             string title = Console.ReadLine();
 
+            if (this.reviewService.DoesReviewExist(title))
+            {
+                throw new ArgumentException(string.Format(ErrorMessages.ReviewTitleTaken, title));
+            }
+
             Console.Write("Enter contnet : ");
             string content = Console.ReadLine();
 
@@ -27,7 +32,7 @@
 
             if (!reviewService.IsRatingValid(rating))
             {
-                throw new ArgumentException("Rating must be in range 1-10.");
+                throw new ArgumentException(ErrorMessages.RatingRange);
             }
 
             Console.Write("Enter game name for the review : ");
@@ -35,7 +40,7 @@
 
             if (!this.gameService.DoesGameExist(gameName))
             {
-                throw new ArgumentException($"The game {gameName} does not exist.");
+                throw new ArgumentException(string.Format(ErrorMessages.GameExists, gameName));
             }
 
             this.reviewService.GreateReview(title, content, rating, gameName);

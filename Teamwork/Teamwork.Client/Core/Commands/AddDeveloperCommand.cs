@@ -36,7 +36,7 @@
 
             if (this.developerService.DoesDeveloperExist(name))
             {
-                throw new ArgumentException("Developer already exist.");
+                throw new ArgumentException(string.Format(ErrorMessages.DeveloperExists, name));
             }
 
             this.developerService.GreateDeveloper(name, countryName, cityName, founded);

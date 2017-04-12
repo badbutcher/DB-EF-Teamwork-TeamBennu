@@ -24,17 +24,17 @@
 
             if (!this.gameService.DoesGameExist(gameName))
             {
-                throw new ArgumentException("Game does not exist.");
+                throw new ArgumentException(string.Format(ErrorMessages.GameExists, gameName));
             }
 
             if (!this.publisherService.DoesPublisherExist(publisherName))
             {
-                throw new ArgumentException("Developer does not exist.");
+                throw new ArgumentException(string.Format(ErrorMessages.PublisherExists, publisherName));
             }
 
             if (this.gameService.DoesTheGameHaveAnPublisher(gameName, publisherName))
             {
-                throw new ArgumentException($"{gameName} is already made by {publisherName}.");
+                throw new ArgumentException(string.Format(ErrorMessages.GameHasPublisher, gameName, publisherName));
             }
 
             this.gameService.AddGameToPublisher(gameName, publisherName);

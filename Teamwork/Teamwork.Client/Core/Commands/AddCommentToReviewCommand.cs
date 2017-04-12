@@ -24,7 +24,7 @@
 
             if (!this.reviewService.DoesReviewExist(reviewTitle))
             {
-                throw new ArgumentException($"{reviewTitle} does not exist.");
+                throw new ArgumentException(string.Format(ErrorMessages.ReviewDoesNotExist, reviewTitle));
             }
 
             this.commentService.AddComment(commentContent);

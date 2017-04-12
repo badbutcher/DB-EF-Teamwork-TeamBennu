@@ -56,12 +56,12 @@
             }
         }
 
-        public List<GetGamesByRatingAnonymous> GetGamesByRating(float rating)
+        public List<GetGamesByRatingDto> GetGamesByRating(float rating)
         {
             using (TeamworkContext context = new TeamworkContext())
             {
                 var result = context.Reviews
-                    .Select(g => new GetGamesByRatingAnonymous()
+                    .Select(g => new GetGamesByRatingDto()
                     {
                         GameName = g.Game.Name,
                         ReviewTitle = g.Name,
@@ -87,6 +87,22 @@
                         ReviewTitle = c.Name,
                         ReviewContent = c.Content,
                         Comments = c.Comments.Select(g => g.Content).ToList()
+                    })
+                    .Where(g => g.GameName == gameName);
+
+                return result.ToList();
+            }
+        }
+
+        public List<GetGameByAverageRatingDto> GetGameByAverageRating(string gameName)
+        {
+            using (TeamworkContext context = new TeamworkContext())
+            {
+                var result = context.Reviews
+                    .Select(g => new GetGameByAverageRatingDto()
+                    {
+                        GameName = g.Game.Name,
+                        Rating = g.Game.Reviews.Average(a => a.Rating)
                     })
                     .Where(g => g.GameName == gameName);
 

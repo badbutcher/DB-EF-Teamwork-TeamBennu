@@ -20,7 +20,7 @@
 
             if (!reviewService.IsRatingValid(gameRating))
             {
-                throw new ArgumentException("Rating must be in range 1-10.");
+                throw new ArgumentException(ErrorMessages.RatingRange);
             }
 
             var result = this.reviewService.GetGamesByRating(gameRating);

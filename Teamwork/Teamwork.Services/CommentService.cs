@@ -24,7 +24,9 @@
         {
             using (TeamworkContext context = new TeamworkContext())
             {
-                Comment comment = context.Comments.SingleOrDefault(c => c.Content == commnetContent);
+                Comment comment = context.Comments
+                    .Where(a => a.ReviewId == null)
+                    .SingleOrDefault(c => c.Content == commnetContent);
                 Review review = context.Reviews.SingleOrDefault(r => r.Name == reviewTitle);
                 review.Comments.Add(comment);
                 context.SaveChanges();

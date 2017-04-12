@@ -36,7 +36,7 @@
 
             if (this.publisherService.DoesPublisherExist(name))
             {
-                throw new ArgumentException("Publisher already exist.");
+                throw new ArgumentException(string.Format(ErrorMessages.PublisherExists, name));
             }
 
             this.publisherService.GreatePublisher(name, countryName, cityName, founded);

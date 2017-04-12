@@ -59,7 +59,7 @@
                     result = selectAllGamesCommand.Execute(commandType);
                     break;
                 case 11:
-                    SelectCommentsForReviewsCommand selectCommentsForReviewsCommand = new SelectCommentsForReviewsCommand(reviewService);
+                    SelectCommentsForReviewsCommand selectCommentsForReviewsCommand = new SelectCommentsForReviewsCommand(reviewService, gameService);
                     result = selectCommentsForReviewsCommand.Execute(commandType);
                     break;
                 case 12:
@@ -69,6 +69,10 @@
                 case 13:
                     SelectPublishersAndThereGames selectPublishersAndThereGames = new SelectPublishersAndThereGames(publisherService);
                     result = selectPublishersAndThereGames.Execute(commandType);
+                    break;
+                case 14:
+                    SelectAverageRatingOfGame selectAverageRatingOfGame = new SelectAverageRatingOfGame(reviewService, gameService);
+                    result = selectAverageRatingOfGame.Execute(commandType);
                     break;
                 case 99:
                     ExitCommand exit = new ExitCommand();

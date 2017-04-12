@@ -24,17 +24,17 @@
 
             if (!this.gameService.DoesGameExist(gameName))
             {
-                throw new ArgumentException("Game does not exist.");
+                throw new ArgumentException(string.Format(ErrorMessages.GameExists, gameName));
             }
 
             if (!this.developerService.DoesDeveloperExist(developerName))
             {
-                throw new ArgumentException("Developer does not exist.");
+                throw new ArgumentException(string.Format(ErrorMessages.DeveloperExists, developerName));
             }
 
             if (this.gameService.DoesTheGameHaveAnDeveloper(gameName, developerName))
             {
-                throw new ArgumentException($"{gameName} is already made by {developerName}.");
+                throw new ArgumentException(string.Format(ErrorMessages.GameHasDeveloper, gameName, developerName));
             }
 
             this.gameService.AddGameToDeveloper(gameName, developerName);

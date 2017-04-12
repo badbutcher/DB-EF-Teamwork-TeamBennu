@@ -7,16 +7,23 @@
     public class SelectCommentsForReviewsCommand
     {
         private ReviewService reviewService;
+        private GameService gameService;
 
-        public SelectCommentsForReviewsCommand(ReviewService reviewService)
+        public SelectCommentsForReviewsCommand(ReviewService reviewService, GameService gameService)
         {
             this.reviewService = reviewService;
+            this.gameService = gameService;
         }
 
         public string Execute(int data)
         {
             Console.Write("Enter game name to checks its reviews and comments: ");
             string gameName = Console.ReadLine();
+
+            if (!gameService.DoesGameExist(gameName))
+            {
+                throw new ArgumentException($"No game with the name {gameService} exists");
+            }
 
             var result = this.reviewService.ListReviewsAndComments(gameName);
 

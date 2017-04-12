@@ -25,6 +25,7 @@
                 }
                 catch (Exception e)
                 {
+                    Console.WriteLine(e);
                     Error(e);
                 }
             }
@@ -45,6 +46,7 @@
             Console.WriteLine("11 - View reviews and comments for a given game.");
             Console.WriteLine("12 - View developers and there games.");
             Console.WriteLine("13 - View publishers and there games.");
+            Console.WriteLine("14 - View game by its average rating.");
             Console.WriteLine("99 - Exit");
         }
 
