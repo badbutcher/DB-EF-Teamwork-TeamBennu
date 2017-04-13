@@ -13,6 +13,8 @@
             PublisherService publisherService = new PublisherService();
             ReviewService reviewService = new ReviewService();
             CommentService commentService = new CommentService();
+            UserService userService = new UserService();
+
             Console.Clear();
             string result = string.Empty;
 
@@ -73,6 +75,22 @@
                 case 14:
                     SelectAverageRatingOfGame selectAverageRatingOfGame = new SelectAverageRatingOfGame(reviewService, gameService);
                     result = selectAverageRatingOfGame.Execute(commandType);
+                    break;
+                case 15:
+                    UserRegisterCommand userRegisterCommand = new UserRegisterCommand(userService);
+                    result = userRegisterCommand.Execute(commandType);
+                    break;
+                case 16:
+                    UserLoginCommand userLoginCommand = new UserLoginCommand(userService);
+                    result = userLoginCommand.Execute(commandType);
+                    break;
+                case 17:
+                    UserLogoutCommand userLogoutCommand = new UserLogoutCommand(userService);
+                    result = userLogoutCommand.Execute(commandType);
+                    break;
+                case 18:
+                    BuyGameCommand buyGameCommand = new BuyGameCommand(gameService);
+                    result = buyGameCommand.Execute(commandType);
                     break;
                 case 99:
                     ExitCommand exit = new ExitCommand();

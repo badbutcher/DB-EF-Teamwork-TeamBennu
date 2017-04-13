@@ -25,7 +25,6 @@
                 }
                 catch (Exception e)
                 {
-                    Console.WriteLine(e);
                     Error(e);
                 }
             }
@@ -47,6 +46,10 @@
             Console.WriteLine("12 - View developers and there games.");
             Console.WriteLine("13 - View publishers and there games.");
             Console.WriteLine("14 - View game by its average rating.");
+            Console.WriteLine("15 - Register user");
+            Console.WriteLine("16 - Login user");
+            Console.WriteLine("17 - Logout");
+            Console.WriteLine("18 - Buy game");
             Console.WriteLine("99 - Exit");
         }
 

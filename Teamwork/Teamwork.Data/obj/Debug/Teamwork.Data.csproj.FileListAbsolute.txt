@@ -61,3 +61,5 @@ D:\GitHub\DB-EF-Teamwork-TeamBennu\Teamwork\Teamwork.Data\obj\Debug\Teamwork.Dat
 D:\GitHub\DB-EF-Teamwork-TeamBennu\Teamwork\Teamwork.Data\obj\Debug\Teamwork.Data.Migrations.ReviewGameIdFix.resources
 D:\GitHub\DB-EF-Teamwork-TeamBennu\Teamwork\Teamwork.Data\obj\Debug\Teamwork.Data.Migrations.CommentDBSet.resources
 D:\GitHub\DB-EF-Teamwork-TeamBennu\Teamwork\Teamwork.Data\obj\Debug\Teamwork.Data.Migrations.CommentReviewIdFix.resources
+D:\GitHub\DB-EF-Teamwork-TeamBennu\Teamwork\Teamwork.Data\obj\Debug\Teamwork.Data.Migrations.UserTable.resources
+D:\GitHub\DB-EF-Teamwork-TeamBennu\Teamwork\Teamwork.Data\obj\Debug\Teamwork.Data.Migrations.GameUpdate.resources

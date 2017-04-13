@@ -1,16 +1,18 @@
-﻿namespace Teamwork.Services
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using Teamwork.Data;
+using Teamwork.Models;
+using Teamwork.Models.Dtos;
+using Teamwork.Models.Enums;
+
+namespace Teamwork.Services
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using Data;
-    using Models;
-    using Models.Enums;
-    using Models.Dtos;
+
 
     public class GameService
     {
-        public void GreateGame(string name, bool isSingleplayer, bool isMultiplayer, DateTime? relaseDate, GameGenre gameGender)
+        public void GreateGame(string name, bool isSingleplayer, bool isMultiplayer, DateTime? relaseDate, GameGenre gameGender, decimal gamePrice)
         {
             Game game = new Game
             {
@@ -18,7 +20,8 @@
                 IsSingleplayer = isSingleplayer,
                 IsMultiplayer = isSingleplayer,
                 RelaseDate = relaseDate,
-                GameGenre = gameGender
+                GameGenre = gameGender,
+                Price = gamePrice
             };
 
             using (TeamworkContext context = new TeamworkContext())
@@ -125,5 +128,9 @@
 
             return result;
         }
+
+
+
+       
     }
 }
