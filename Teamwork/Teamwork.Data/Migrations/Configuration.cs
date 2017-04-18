@@ -156,7 +156,7 @@ namespace Teamwork.Data.Migrations
                 Username = "Admin",
                 Password = "12345A",
                 Money = 0,
-                //CreditCardNumber = 01234567890
+                CreditCardNumber = 01234567890
             };
 
             context.Users.AddOrUpdate(a => a.Username, Admin);

@@ -59,7 +59,8 @@
                 Console.WriteLine("9 - View game by its average rating.");
                 Console.WriteLine("10 - Buy game");
                 Console.WriteLine("11 - My info");
-                Console.WriteLine("12 - Logout");
+                Console.WriteLine("12 - Add money");
+                Console.WriteLine("13 - Logout");
             }
 
             Console.WriteLine("99 - Exit");

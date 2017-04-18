@@ -65,3 +65,4 @@ D:\GitHub\DB-EF-Teamwork-TeamBennu\Teamwork\Teamwork.Data\obj\Debug\Teamwork.Dat
 D:\GitHub\DB-EF-Teamwork-TeamBennu\Teamwork\Teamwork.Data\obj\Debug\Teamwork.Data.Migrations.GameUpdate.resources
 D:\GitHub\DB-EF-Teamwork-TeamBennu\Teamwork\Teamwork.Data\obj\Debug\Teamwork.Data.Migrations.GameHasManyOwners.resources
 D:\GitHub\DB-EF-Teamwork-TeamBennu\Teamwork\Teamwork.Data\obj\Debug\Teamwork.Data.Migrations.RemoveUserId.resources
+D:\GitHub\DB-EF-Teamwork-TeamBennu\Teamwork\Teamwork.Data\obj\Debug\Teamwork.Data.Migrations.UserCreditNumber.resources

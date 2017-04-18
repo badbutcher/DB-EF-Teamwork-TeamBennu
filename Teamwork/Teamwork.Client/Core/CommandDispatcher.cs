@@ -123,6 +123,10 @@
                         result = userInfoCommand.Execute(commandType);
                         break;
                     case 12:
+                        UserAddMoneyCommand userAddMoneyCommand = new UserAddMoneyCommand(userService);
+                        result = userAddMoneyCommand.Execute(commandType);
+                        break;
+                    case 13:
                         UserLogoutCommand userLogoutCommand = new UserLogoutCommand(userService);
                         result = userLogoutCommand.Execute(commandType);
                         break;

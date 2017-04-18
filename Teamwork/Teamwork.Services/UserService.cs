@@ -1,6 +1,5 @@
 ﻿namespace Teamwork.Services
 {
-    using System;
     using System.Collections.Generic;
     using System.Linq;
     using Data;
@@ -9,7 +8,7 @@
 
     public class UserService
     {
-        public void RegisterUser(string username, string password, decimal money)
+        public void RegisterUser(string username, string password, decimal money, int creditCardNumber)
         {
             using (TeamworkContext context = new TeamworkContext())
             {
@@ -17,7 +16,8 @@
                 {
                     Username = username,
                     Password = password,
-                    Money = money
+                    Money = money,
+                    CreditCardNumber = creditCardNumber
                 };
 
                 context.Users.Add(u);
@@ -25,15 +25,15 @@
             }
         }
 
-        //public bool CheckCreditCardNumber(int number)
-        //{
-        //    using (TeamworkContext context = new TeamworkContext())
-        //    {
-        //        var result = context.Users.Any(a => a.CreditCardNumber == number);
+        public bool CheckCreditCardNumber(int number)
+        {
+            using (TeamworkContext context = new TeamworkContext())
+            {
+                var result = context.Users.Any(a => a.CreditCardNumber == number);
 
-        //        return result;
-        //    }
-        //}
+                return result;
+            }
+        }
 
         public bool IsUsernameTaken(string username)
         {
@@ -73,16 +73,16 @@
         }
 
 
-        //public void AddMoney(int credit, decimal money, User user)
-        //{
-        //    using (TeamworkContext context = new TeamworkContext())
-        //    {
-        //        var creditNumber = context.Users.FirstOrDefault(a => a.CreditCardNumber == credit);
-        //        User u = context.Users.FirstOrDefault(a => a.Username == user.Username);
+        public void AddMoney(int credit, decimal money, User user)
+        {
+            using (TeamworkContext context = new TeamworkContext())
+            {
+                var creditNumber = context.Users.FirstOrDefault(a => a.CreditCardNumber == credit);
+                User u = context.Users.FirstOrDefault(a => a.Username == user.Username);
 
-        //        u.Money += money;
-        //        context.SaveChanges();
-        //    }
-        //}
+                u.Money += money;
+                context.SaveChanges();
+            }
+        }
     }
 }

@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Teamwork.Models
+﻿namespace Teamwork.Models
 {
+    using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
+
     public class User
     {
         public User()
@@ -23,6 +19,9 @@ namespace Teamwork.Models
         public string Password { get; set; }
 
         public decimal Money { get; set; }
+
+        [Required]
+        public int CreditCardNumber { get; set; }
 
         public virtual ICollection<Game> GamesOwned { get; set; }
     }

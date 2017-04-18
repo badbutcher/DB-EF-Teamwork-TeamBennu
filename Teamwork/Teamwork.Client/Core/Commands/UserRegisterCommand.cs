@@ -44,13 +44,13 @@
                 throw new ArgumentException(ErrorMessages.PasswordNotValid);
             }
 
-            //Console.Write("Enter credit card number (10 chars): ");
-            //int creditCardNumber = int.Parse(Console.ReadLine());
+            Console.Write("Enter credit card number: ");
+            int creditCardNumber = int.Parse(Console.ReadLine());
 
-            //if (userService.CheckCreditCardNumber(creditCardNumber))
-            //{
-            //    throw new ArgumentException(ErrorMessages.CreditCard);
-            //}
+            if (userService.CheckCreditCardNumber(creditCardNumber))
+            {
+                throw new ArgumentException(ErrorMessages.CreditCard);
+            }
 
             Console.Write("Deposit some money: ");
             decimal money = decimal.Parse(Console.ReadLine());
@@ -60,7 +60,7 @@
                 throw new ArgumentException(ErrorMessages.NegativeMoney);
             }
 
-            this.userService.RegisterUser(username, password, money);
+            this.userService.RegisterUser(username, password, money, creditCardNumber);
 
             return $"User {username} successfully registered!";
         }
