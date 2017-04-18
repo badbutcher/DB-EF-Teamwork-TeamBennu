@@ -20,7 +20,7 @@
             Console.Write("Enter game name to checks its reviews and comments: ");
             string gameName = Console.ReadLine();
 
-            if (!gameService.DoesGameExist(gameName))
+            if (!this.gameService.DoesGameExist(gameName))
             {
                 throw new ArgumentException($"No game with the name {gameService} exists");
             }

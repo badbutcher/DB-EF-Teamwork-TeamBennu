@@ -16,7 +16,7 @@
 
         public string Execute(int data)
         {
-            Console.Write("Enter review title : ");
+            Console.Write("Enter review title: ");
             string title = Console.ReadLine();
 
             if (this.reviewService.DoesReviewExist(title))
@@ -24,18 +24,18 @@
                 throw new ArgumentException(string.Format(ErrorMessages.ReviewTitleTaken, title));
             }
 
-            Console.Write("Enter contnet : ");
+            Console.Write("Enter contnet: ");
             string content = Console.ReadLine();
 
-            Console.Write("Enter rating (1-10) : ");
+            Console.Write("Enter rating (1-10): ");
             float rating = float.Parse(Console.ReadLine());
 
-            if (!reviewService.IsRatingValid(rating))
+            if (!this.reviewService.IsRatingValid(rating))
             {
                 throw new ArgumentException(ErrorMessages.RatingRange);
             }
 
-            Console.Write("Enter game name for the review : ");
+            Console.Write("Enter game name for the review: ");
             string gameName = Console.ReadLine();
 
             if (!this.gameService.DoesGameExist(gameName))

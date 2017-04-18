@@ -18,7 +18,7 @@
             Console.Write("Enter minimum game rating: ");
             float gameRating = float.Parse(Console.ReadLine());
 
-            if (!reviewService.IsRatingValid(gameRating))
+            if (!this.reviewService.IsRatingValid(gameRating))
             {
                 throw new ArgumentException(ErrorMessages.RatingRange);
             }
@@ -30,6 +30,7 @@
             {
                 sb.Append("No games with such rating");
             }
+
             foreach (var item in result)
             {
                 sb.AppendFormat("Game name: {0,-35}\n", item.GameName);

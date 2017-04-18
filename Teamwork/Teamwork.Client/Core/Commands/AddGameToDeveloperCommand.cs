@@ -16,7 +16,7 @@
 
         public string Execute(int data)
         {
-            Console.Write("Enter game name : ");
+            Console.Write("Enter game name: ");
             string gameName = Console.ReadLine();
 
             Console.Write("Enter developer name: ");

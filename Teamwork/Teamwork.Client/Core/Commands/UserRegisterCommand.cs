@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Teamwork.Services;
-
-namespace Teamwork.Client.Core.Commands
+﻿namespace Teamwork.Client.Core.Commands
 {
+    using System;
+    using System.Linq;
+    using Services;
+
     public class UserRegisterCommand
     {
         private UserService userService;
@@ -18,10 +15,10 @@ namespace Teamwork.Client.Core.Commands
 
         public string Execute(int data)
         {
-            Console.Write("Enter username : ");
+            Console.Write("Enter username (min 3 chars): ");
             string username = Console.ReadLine();
 
-            if (userService.IsUsernameTaken(username))
+            if (this.userService.IsUsernameTaken(username))
             {
                 throw new ArgumentException(string.Format(ErrorMessages.UsernameTaken, username));
             }
@@ -31,7 +28,7 @@ namespace Teamwork.Client.Core.Commands
                 throw new ArgumentException(ErrorMessages.UsernameLenght);
             }
 
-            Console.Write("Enter password with at least one uppercase :");
+            Console.Write("Enter password with at least one uppercase (min 6 chars): ");
             string password = Console.ReadLine();
 
             if (!password.Any(char.IsUpper) || password.Length < 6)
@@ -39,7 +36,7 @@ namespace Teamwork.Client.Core.Commands
                 throw new ArgumentException(string.Format(ErrorMessages.PasswordNotValid, password));
             }
 
-            Console.Write("Repeat password : ");
+            Console.Write("Repeat password: ");
             string repeatPassword = Console.ReadLine();
 
             if (password != repeatPassword)
@@ -47,7 +44,15 @@ namespace Teamwork.Client.Core.Commands
                 throw new ArgumentException(ErrorMessages.PasswordNotValid);
             }
 
-            Console.Write("Deposit some money : ");
+            //Console.Write("Enter credit card number (10 chars): ");
+            //int creditCardNumber = int.Parse(Console.ReadLine());
+
+            //if (userService.CheckCreditCardNumber(creditCardNumber))
+            //{
+            //    throw new ArgumentException(ErrorMessages.CreditCard);
+            //}
+
+            Console.Write("Deposit some money: ");
             decimal money = decimal.Parse(Console.ReadLine());
 
             if (money < 0)
@@ -55,7 +60,7 @@ namespace Teamwork.Client.Core.Commands
                 throw new ArgumentException(ErrorMessages.NegativeMoney);
             }
 
-            userService.RegisterUser(username, password, money);
+            this.userService.RegisterUser(username, password, money);
 
             return $"User {username} successfully registered!";
         }

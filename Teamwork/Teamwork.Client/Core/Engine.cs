@@ -20,36 +20,48 @@
                     this.PrintOptions();
                     int input = int.Parse(Console.ReadLine());
                     int data = input;
-                    string result = this.commandDispatcher.DispatchCommand(data); 
-                    Success(result);
+                    string result = this.commandDispatcher.DispatchCommand(data);
+                    this.Success(result);
                 }
                 catch (Exception e)
                 {
-                    Error(e);
+                    this.Error(e);
                 }
             }
         }
 
         private void PrintOptions()
         {
-            Console.WriteLine("1 - Add new game.");
-            Console.WriteLine("2 - Add new developer.");
-            Console.WriteLine("3 - Add developer to a game.");
-            Console.WriteLine("4 - Add new publisher.");
-            Console.WriteLine("5 - Add publisher to a game.");
-            Console.WriteLine("6 - Add review to a game.");
-            Console.WriteLine("7 - Add comment to a review.");
-            Console.WriteLine("8 - View games by there genre.");
-            Console.WriteLine("9 - View games by a given minimum rating.");
-            Console.WriteLine("10 - List all games.");
-            Console.WriteLine("11 - View reviews and comments for a given game.");
-            Console.WriteLine("12 - View developers and there games.");
-            Console.WriteLine("13 - View publishers and there games.");
-            Console.WriteLine("14 - View game by its average rating.");
-            Console.WriteLine("15 - Register user");
-            Console.WriteLine("16 - Login user");
-            Console.WriteLine("17 - Logout");
-            Console.WriteLine("18 - Buy game");
+            if (AuthenticationManager.GetCurrentUser() == null)
+            {
+                Console.WriteLine("1 - Register user");
+                Console.WriteLine("2 - Login user");
+            }
+            else if (AuthenticationManager.GetCurrentUser().Username == "Admin")
+            {
+                Console.WriteLine("1 - Add new game.");
+                Console.WriteLine("2 - Add new developer.");
+                Console.WriteLine("3 - Add developer to a game.");
+                Console.WriteLine("4 - Add new publisher.");
+                Console.WriteLine("5 - Add publisher to a game.");
+                Console.WriteLine("6 - Logout");
+            }
+            else if (AuthenticationManager.GetCurrentUser() != null && AuthenticationManager.GetCurrentUser().Username != "Admin")
+            {
+                Console.WriteLine("1 - Add review to a game.");
+                Console.WriteLine("2 - Add comment to a review.");
+                Console.WriteLine("3 - View games by there genre.");
+                Console.WriteLine("4 - View games by a given minimum rating.");
+                Console.WriteLine("5 - List all games.");
+                Console.WriteLine("6 - View reviews and comments for a given game.");
+                Console.WriteLine("7 - View developers and there games.");
+                Console.WriteLine("8 - View publishers and there games.");
+                Console.WriteLine("9 - View game by its average rating.");
+                Console.WriteLine("10 - Buy game");
+                Console.WriteLine("11 - My info");
+                Console.WriteLine("12 - Logout");
+            }
+
             Console.WriteLine("99 - Exit");
         }
 

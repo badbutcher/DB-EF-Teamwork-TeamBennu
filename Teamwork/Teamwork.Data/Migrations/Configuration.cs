@@ -55,6 +55,7 @@ namespace Teamwork.Data.Migrations
                 IsMultiplayer = false,
                 RelaseDate = DateTime.Parse("19.11.1999"),
                 GameGenre = GameGenre.FPS,
+                Price = 100,
                 Publishers = new List<Publisher>()
                 {
                     ValvePub
@@ -71,6 +72,7 @@ namespace Teamwork.Data.Migrations
                 IsMultiplayer = false,
                 RelaseDate = DateTime.Parse("09.10.2007"),
                 GameGenre = GameGenre.FPS,
+                Price = 100,
                 Publishers = new List<Publisher>()
                 {
                     ValvePub
@@ -87,6 +89,7 @@ namespace Teamwork.Data.Migrations
                 IsMultiplayer = true,
                 RelaseDate = DateTime.Parse("17.11.2008"),
                 GameGenre = GameGenre.FPS,
+                Price = 100,
                 Publishers = new List<Publisher>()
                 {
                     ValvePub
@@ -103,6 +106,7 @@ namespace Teamwork.Data.Migrations
                 IsMultiplayer = true,
                 RelaseDate = DateTime.Parse("10.09.2007"),
                 GameGenre = GameGenre.FPS,
+                Price = 100,
                 Publishers = new List<Publisher>()
                 {
                     ValvePub
@@ -119,6 +123,7 @@ namespace Teamwork.Data.Migrations
                 IsMultiplayer = true,
                 RelaseDate = DateTime.Parse("09.07.2013"),
                 GameGenre = GameGenre.MOBA,
+                Price = 500,
                 Publishers = new List<Publisher>()
                 {
                     ValvePub
@@ -135,6 +140,7 @@ namespace Teamwork.Data.Migrations
                 IsMultiplayer = true,
                 RelaseDate = DateTime.Parse("01.11.2004"),
                 GameGenre = GameGenre.FPS,
+                Price = 100,
                 Publishers = new List<Publisher>()
                 {
                     ValvePub
@@ -144,6 +150,17 @@ namespace Teamwork.Data.Migrations
                     ValveDev, TurtleRockStudiosDev
                 }
             });
+
+            User Admin = new User()
+            {
+                Username = "Admin",
+                Password = "12345A",
+                Money = 0,
+                //CreditCardNumber = 01234567890
+            };
+
+            context.Users.AddOrUpdate(a => a.Username, Admin);
+            context.SaveChanges();
         }
     }
 }

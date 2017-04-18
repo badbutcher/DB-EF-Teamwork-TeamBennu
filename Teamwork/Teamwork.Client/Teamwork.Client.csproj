@@ -70,6 +70,8 @@
     <Compile Include="Core\Commands\SelectGameByGenre.cs" />
     <Compile Include="Core\Commands\SelectGameReviewRating.cs" />
     <Compile Include="Core\Commands\SelectPublishersAndThereGames.cs" />
+    <Compile Include="Core\Commands\UserAddMoneyCommand.cs" />
+    <Compile Include="Core\Commands\UserInfoCommand.cs" />
     <Compile Include="Core\Commands\UserLoginCommand.cs" />
     <Compile Include="Core\Commands\UserLogoutCommand.cs" />
     <Compile Include="Core\Commands\UserRegisterCommand.cs" />

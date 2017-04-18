@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Teamwork.Models;
-using Teamwork.Services;
-
-namespace Teamwork.Client.Core.Commands
+﻿namespace Teamwork.Client.Core.Commands
 {
+    using System;
+    using Models;
+    using Services;
+
     public class UserLoginCommand
     {
         private UserService userService;
@@ -19,10 +15,10 @@ namespace Teamwork.Client.Core.Commands
 
         public string Execute(int data)
         {
-            Console.Write("Enter username : ");
+            Console.Write("Enter username: ");
             string username = Console.ReadLine();
 
-            Console.Write("Enter password :");
+            Console.Write("Enter password: ");
             string password = Console.ReadLine();
 
             if (AuthenticationManager.IsAuthenticated())
@@ -30,7 +26,7 @@ namespace Teamwork.Client.Core.Commands
                 throw new InvalidOperationException(ErrorMessages.LogoutFirst);
             }
 
-            User user = userService.GetUserByCredentials(username, password);
+            User user = this.userService.GetUserByCredentials(username, password);
 
             if (user == null)
             {

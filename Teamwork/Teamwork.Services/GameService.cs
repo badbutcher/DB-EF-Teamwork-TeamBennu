@@ -1,14 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using Teamwork.Data;
-using Teamwork.Models;
-using Teamwork.Models.Dtos;
-using Teamwork.Models.Enums;
-
-namespace Teamwork.Services
+﻿namespace Teamwork.Services
 {
-
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using Data;
+    using Models;
+    using Models.Dtos;
+    using Models.Enums;
 
     public class GameService
     {
@@ -129,8 +127,26 @@ namespace Teamwork.Services
             return result;
         }
 
+        public void BuyGame(string gameName, User currentUser)
+        {
+            using (TeamworkContext context = new TeamworkContext())
+            {
+                Game game = context.Games.FirstOrDefault(a => a.Name == gameName);
+                User user = context.Users.FirstOrDefault(a => a.Username == currentUser.Username);
+                if (user.Money < game.Price)
+                {
+                    throw new ArgumentException("You need more money to but this game.");
+                }
 
+                if (user.GamesOwned.Any(a => a.Name == game.Name))
+                {
+                    throw new ArgumentException($"You already own the game {game.Name}.");
+                }
 
-       
+                user.Money -= game.Price;
+                user.GamesOwned.Add(game);
+                context.SaveChanges();
+            }
+        }
     }
 }

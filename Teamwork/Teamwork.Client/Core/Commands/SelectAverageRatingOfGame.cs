@@ -5,7 +5,7 @@
     using System.Text;
     using Services;
 
-    class SelectAverageRatingOfGame
+    public class SelectAverageRatingOfGame
     {
         private ReviewService reviewService;
         private GameService gameService;
@@ -21,9 +21,9 @@
             Console.Write("Enter game name: ");
             string gameName = Console.ReadLine();
 
-            if (!gameService.DoesGameExist(gameName))
+            if (!this.gameService.DoesGameExist(gameName))
             {
-                throw new ArgumentException(string.Format(ErrorMessages.GameExists, gameName));
+                throw new ArgumentException(string.Format(ErrorMessages.GameDoesNotExists, gameName));
             }
 
             var result = this.reviewService.GetGameByAverageRating(gameName);

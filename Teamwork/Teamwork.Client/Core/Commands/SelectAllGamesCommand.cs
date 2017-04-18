@@ -23,7 +23,8 @@
                 sb.AppendFormat("Name: {0,-35}\n", item.Name);
                 sb.AppendFormat("SP: {0,-35}\n", item.IsSingleplayer);
                 sb.AppendFormat("MP: {0,-35}\n", item.IsMultiplayer);
-                sb.AppendFormat("Relase Date: {0,-35}\n\n", item.RelaseDate.Value.ToShortDateString());
+                sb.AppendFormat("Relase Date: {0,-35}", item.RelaseDate.Value.ToShortDateString());
+                sb.AppendFormat("Price: {0,-35}\n\n", item.Price);
             }
 
             return sb.ToString();

@@ -12,6 +12,7 @@
             this.Reviews = new HashSet<Review>();
             this.Publishers = new HashSet<Publisher>();
             this.Developers = new HashSet<Developer>();
+            this.Users = new HashSet<User>();
         }
 
         public int Id { get; set; }
@@ -29,9 +30,7 @@
 
         public decimal Price { get; set; }
 
-        public int? UserId { get; set; }
-
-        public User User { get; set; }
+        public virtual ICollection<User> Users { get; set; }
 
         public virtual ICollection<Review> Reviews { get; set; }
 

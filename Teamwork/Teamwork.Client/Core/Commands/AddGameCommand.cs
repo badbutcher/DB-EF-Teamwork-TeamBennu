@@ -4,7 +4,6 @@
     using System.Linq;
     using Models.Enums;
     using Services;
-    using System.Collections.Generic;
 
     public class AddGameCommand
     {
@@ -29,7 +28,7 @@
             Console.Write("When was the game released: ");
             DateTime? releaseDate = DateTime.Parse(Console.ReadLine());
 
-            Console.Write("What is the game genre ({0}): ", string.Join(", ", gameService.GetAllGenres()));
+            Console.Write("What is the game genre ({0}): ", string.Join(", ", this.gameService.GetAllGenres()));
             string gameGenre = Console.ReadLine();
 
             Console.Write("Enter game price: ");
@@ -42,7 +41,7 @@
 
             if (this.gameService.DoesGameExist(name))
             {
-                throw new ArgumentException(string.Format(ErrorMessages.GameExists,name));
+                throw new ArgumentException(string.Format(ErrorMessages.GameExists, name));
             }
 
             GameGenre genre = (GameGenre)Enum.Parse(typeof(GameGenre), gameGenre);

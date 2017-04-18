@@ -16,10 +16,10 @@
 
         public string Execute(int data)
         {
-            Console.Write("Enter review title to comment : ");
+            Console.Write("Enter review title to comment: ");
             string reviewTitle = Console.ReadLine();
 
-            Console.Write("Enter comment contnet : ");
+            Console.Write("Enter comment contnet: ");
             string commentContent = Console.ReadLine();
 
             if (!this.reviewService.DoesReviewExist(reviewTitle))

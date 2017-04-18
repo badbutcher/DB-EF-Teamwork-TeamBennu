@@ -35,6 +35,7 @@
                         sb.AppendFormat("-- {0}\n", game);
                     }
                 }
+
                 sb.Append("\n");
             }
 

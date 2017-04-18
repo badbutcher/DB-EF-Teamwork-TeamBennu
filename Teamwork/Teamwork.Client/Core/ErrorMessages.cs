@@ -5,6 +5,7 @@
         public const string ReviewDoesNotExist = "Review title {0} does not exist.";
         public const string DeveloperExists = "Developer {0} already exist.";
         public const string GameExists = "Game {0} already exist.";
+        public const string GameDoesNotExists = "Game {0} does not exist.";
         public const string GameHasDeveloper = "{0} is already made by {1}.";
         public const string PublisherExists = "Publisher {0} already exist.";
         public const string GameHasPublisher = "{0} is already published by {1}.";
@@ -20,7 +21,8 @@
         public const string UsernameTaken = "The username {0} has been taken.";
         public const string PasswordNotValid = "Password must have one uppercase symbol.";
         public const string PasswordMatch = "Passwords do not match.";
-        public const string NegativeMoney = "Money must be more than 0";
+        public const string NegativeMoney = "Money must be more than 0.";
         public const string WrongUsernameOrPassword = "Invalid username or password.";
+        public const string CreditCard = "This credit card is in use.";
     }
 }
