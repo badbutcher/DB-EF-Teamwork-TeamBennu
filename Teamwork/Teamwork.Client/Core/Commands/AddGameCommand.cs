@@ -29,7 +29,7 @@
             DateTime? releaseDate = DateTime.Parse(Console.ReadLine());
 
             Console.Write("What is the game genre ({0}): ", string.Join(", ", this.gameService.GetAllGenres()));
-            string gameGenre = Console.ReadLine();
+            string gameGenre = Console.ReadLine().ToUpper();
 
             Console.Write("Enter game price: ");
             decimal gamePrice = decimal.Parse(Console.ReadLine());

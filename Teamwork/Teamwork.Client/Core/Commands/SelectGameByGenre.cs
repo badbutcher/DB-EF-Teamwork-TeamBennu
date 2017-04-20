@@ -16,7 +16,7 @@
         public string Execute(int data)
         {
             Console.Write("Enter Genre ({0}): ", string.Join(", ", this.gameService.GetAllGenres()));
-            string genre = Console.ReadLine();
+            string genre = Console.ReadLine().ToUpper();
 
             var result = this.gameService.GetGamesByGenre(genre);
 
