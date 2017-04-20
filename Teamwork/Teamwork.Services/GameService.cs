@@ -16,7 +16,7 @@
             {
                 Name = name,
                 IsSingleplayer = isSingleplayer,
-                IsMultiplayer = isSingleplayer,
+                IsMultiplayer = isMultiplayer,
                 RelaseDate = relaseDate,
                 GameGenre = gameGender,
                 Price = gamePrice

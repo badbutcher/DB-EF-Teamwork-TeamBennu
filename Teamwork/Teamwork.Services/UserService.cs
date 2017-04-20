@@ -5,6 +5,7 @@
     using Data;
     using Models;
     using Models.Dtos;
+    using System;
 
     public class UserService
     {
@@ -49,7 +50,7 @@
         {
             using (TeamworkContext context = new TeamworkContext())
             {
-                var user = context.Users.FirstOrDefault(u => u.Username == username && u.Password == password);
+                var user = context.Users.Where(u => u.Username == username).ToList().Where(u => u.Password == password).FirstOrDefault();
 
                 return user;
             }
@@ -77,11 +78,17 @@
         {
             using (TeamworkContext context = new TeamworkContext())
             {
-                var creditNumber = context.Users.FirstOrDefault(a => a.CreditCardNumber == credit);
-                User u = context.Users.FirstOrDefault(a => a.Username == user.Username);
+                User u = context.Users.Where(a => a.Username == user.Username).ToList().FirstOrDefault();
 
-                u.Money += money;
-                context.SaveChanges();
+                if (credit == u.CreditCardNumber)
+                {
+                    u.Money += money;
+                    context.SaveChanges();
+                }
+                else
+                {
+                    throw new ArgumentException("Wrong credit card number.");
+                }
             }
         }
     }
